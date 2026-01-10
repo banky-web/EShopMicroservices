@@ -31,7 +31,14 @@ services:
     ports:
       - "6379:6379"
    
-
+  orderdb:
+    container_name: orderdb
+    environment:
+      - ACCEPT_EULA=Y
+      - VB_PASSWORD=Bankky@77
+    restart: always
+    ports:
+      - "1433:1433"
 
   catalog.api:
     environment:
