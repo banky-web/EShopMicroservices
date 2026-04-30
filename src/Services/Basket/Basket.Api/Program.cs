@@ -1,6 +1,7 @@
 
 
 using BuildingBlocks.Exceptions.Handler;
+using BuildingBlocks.Messaging.MassTransit;
 using Discount.Grpc;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -55,6 +56,8 @@ namespace Basket.Api
                   return handler;
               });
 
+            //Async Communication Services
+            builder.Services.AddMessageBroker(builder.Configuration);
 
             //Add Cross Cutting Services
             builder.Services.AddExceptionHandler<CustomExceptionHandler>();
